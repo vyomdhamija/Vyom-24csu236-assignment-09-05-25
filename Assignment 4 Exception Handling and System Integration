@@ -1,0 +1,38 @@
+#include "Person.cpp"
+
+class Professor : public Person {
+private:
+    string department;
+    string specialization;
+    string hireDate;
+
+public:
+    Professor(string n, int a, string i, string c, string d, string s, string h)
+        : Person(n, a, i, c) {
+        setDepartment(d);
+        setSpecialization(s);
+        setHireDate(h);
+    }
+
+    ~Professor() {}
+
+    string getDepartment() { return department; }
+    void setDepartment(string d) { department = d; }
+
+    string getSpecialization() { return specialization; }
+    void setSpecialization(string s) { specialization = s; }
+
+    string getHireDate() { return hireDate; }
+    void setHireDate(string h) { hireDate = h; }
+
+    void displayDetails() override {
+        Person::displayDetails();
+        cout << "Department: " << department << endl;
+        cout << "Specialization: " << specialization << endl;
+        cout << "Hire Date: " << hireDate << endl;
+    }
+
+    double calculatePayment() override {
+        return 50000.0;
+    }
+};
